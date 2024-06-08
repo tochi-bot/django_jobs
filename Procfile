@@ -1,3 +1,4 @@
+web: gunicorn django.jobs.wsgi
 asgiref==3.8.1
 cloudinary==1.40.0
 dj-database-url==0.5.0
