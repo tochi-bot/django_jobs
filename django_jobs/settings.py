@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'resume',
+    'dashboard',
     'company',
     'users',
 ]
