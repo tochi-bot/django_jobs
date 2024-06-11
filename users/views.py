@@ -6,6 +6,19 @@ from .forms import RegisterUserForm
 from resume.models import Resume
 from company.models import company
 
+
+
+
+def proxy(request):
+    return HttpResponse("This is the proxy view.")
+
+def applicant_dashboard(request):
+    return HttpResponse("This is the applicant dashboard.")
+
+def recruiter_dashboard(request):
+    return HttpResponse("This is the proxy view.")
+
+
 # Register Applicant only
 def register_applicant(request):
     if request.method == 'POST':

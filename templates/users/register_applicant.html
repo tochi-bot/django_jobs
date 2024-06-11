@@ -1,0 +1,47 @@
+{% extends 'users/base.html' %}
+
+
+{% block content %}
+<div class="container px-5 my-5">
+    <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label" for="fullName">Enter Full Name</label>
+            {% render_field form.name class="form-control" %}
+            <div class="invalid-feedback" data-sb-feedback="fullName:required">Full Name is required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="emailAddress">Enter Email Address</label>
+            {% render_field form.email class="form-control" %}
+            <div class="invalid-feedback" data-sb-feedback="emailAddress:required">Email Address is required.</div>
+            <div class="invalid-feedback" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="enterPassword">Enter Password</label>
+            {% render_field form.password1 class="form-control" %}
+            <div class="invalid-feedback" data-sb-feedback="enterPassword:required">Enter Password is required.</div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="confirmPassword">Confirm Password</label>
+            {% render_field form.password2 class="form-control" %}
+            <div class="invalid-feedback" data-sb-feedback="confirmPassword:required">Confirm Password is required.</div>
+        </div>
+        <div class="d-none" id="submitSuccessMessage">
+            <div class="text-center mb-3">
+                <div class="fw-bolder">Form submission successful!</div>
+                <p>To activate this form, sign up at</p>
+                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+            </div>
+        </div>
+        <div class="d-none" id="submitErrorMessage">
+            <div class="text-center text-danger mb-3">Error sending message!</div>
+        </div>
+        <div class="d-grid">
+            <button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Register</button>
+        </div>
+        <hr class="my-4">
+        <small class="text-muted">Already have an account? <a href="{% url 'login' %}">Sign In</a></small>
+    </form>
+</div>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+{% endblock %}
