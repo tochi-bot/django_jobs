@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users import views
+from dashboard.views import proxy
+from dashboard.views import applicant_dashboard
+from dataclasses.views import recruiter_dashboard
 
 urlpatterns = [
-    path('register_applicant/', views.register_applicant, name= 'register'),
+    
+    path('register/', views.register_applicant, name='register_applicant'),
     path('register_recruiter/', views.register_recruiter, name= 'register_recruiter'),
     path('login/', views.login_user, name= 'login'),
     path('logout/', views.logout_user, name= 'logout'),

@@ -1,25 +1,12 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from .models import user
+from django.urls import reverse
 from .forms import RegisterUserForm
 from resume.models import Resume
 from company.models import company
 
-
-
-
-def proxy(request):
-    return HttpResponse("This is the proxy view.")
-
-def applicant_dashboard(request):
-    return HttpResponse("This is the applicant dashboard.")
-
-def recruiter_dashboard(request):
-    return HttpResponse("This is the proxy view.")
-
-
-# Register Applicant only
 def register_applicant(request):
     if request.method == 'POST':
         form = RegisterUserForm(request.POST)
@@ -39,7 +26,6 @@ def register_applicant(request):
         context = {'form': form}
         return render(request, 'users/register_applicant.html', context)
 
-# Register Recruiter only
 def register_recruiter(request):
     if request.method == 'POST':
         form = RegisterUserForm(request.POST)
@@ -48,7 +34,7 @@ def register_recruiter(request):
             var.is_recruiter = True
             var.username = var.email
             var.save()
-            company.objects.create(user=var)
+            Company.objects.create(user=var)
             messages.info(request, 'Your account has been created')
             return redirect('login')
         else:
@@ -59,7 +45,6 @@ def register_recruiter(request):
         context = {'form': form}
         return render(request, 'users/register_recruiter.html', context)
 
-# Login user
 def login_user(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -80,8 +65,16 @@ def login_user(request):
     else:
         return render(request, 'users/login.html')
 
-# Logout user
 def logout_user(request):
     logout(request)
     messages.info(request, 'You have successfully logged out')
     return redirect('login')
+
+def proxy(request):
+    return HttpResponse("This is the proxy view.")
+
+def applicant_dashboard(request):
+    return HttpResponse("This is the applicant dashboard.")
+
+def recruiter_dashboard(request):
+    return HttpResponse("This is the recruiter dashboard.")
