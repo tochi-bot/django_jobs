@@ -1,6 +1,7 @@
 {% extends 'users/base.html'%}
 
 {% block content %}
+<h2 class="text-uppercase">Welcome To Django Jobs</h2>
 <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="post">
     {% csrf_token%}
     <div class="mb-3">
@@ -16,7 +17,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label" for="password">Password</label>
-        <input class="form-control" id="password" type="text" name="password"  data-sb-validations="required" />
+        <input class="form-control" id="password" type="password" name="password"  data-sb-validations="required" />
         <div class="invalid-feedback" data-sb-feedback="password:required">Password is required.</div>
     </div>
     <div class="mb-3">
@@ -29,8 +30,6 @@
     <div class="d-none" id="submitSuccessMessage">
         <div class="text-center mb-3">
             <div class="fw-bolder">Form submission successful!</div>
-            <p>To activate this form, sign up at</p>
-            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
         </div>
     </div>
     <div class="d-none" id="submitErrorMessage">
