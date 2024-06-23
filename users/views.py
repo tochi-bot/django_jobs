@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.urls import reverse
 from .forms import RegisterUserForm
 from resume.models import Resume
 from company.models import company
@@ -69,6 +68,15 @@ def logout_user(request):
     logout(request)
     messages.info(request, 'You have successfully logged out')
     return redirect('login')
+
+def index(request):
+    return  render(request, 'users/index.html')
+
+def about(request):
+    return  render(request, 'users/about.html')
+
+def contact(request):
+    return  render(request, 'users/contact.html')
 
 def proxy(request):
     return HttpResponse("This is the proxy view.")
