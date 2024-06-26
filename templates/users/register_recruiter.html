@@ -7,12 +7,12 @@
     <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="post">
         {% csrf_token %}
         <div class="mb-3">
-            <label class="form-label" for="fullName">Enter Full Name</label>
+            <label class="form-label" for="fullName">Enter Company Name</label>
             <input class="form-control" id="fullName" type="text" name="fullName"  data-sb-validations="required" />
             <div class="invalid-feedback" data-sb-feedback="fullName:required">Full Name is required.</div>
         </div>
         <div class="mb-3">
-            <label class="form-label" for="emailAddress">Enter Email Address</label>
+            <label class="form-label" for="emailAddress">Company Email Address</label>
             <input class="form-control" id="emailAddress" type="email" name="emailAddress"  data-sb-validations="required" />
             <div class="invalid-feedback" data-sb-feedback="emailAddress:required">Email Address is required.</div>
             <div class="invalid-feedback" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
@@ -27,6 +27,49 @@
             <input class="form-control" id="password2" type="password" name="password2"  data-sb-validations="required" />
             <div class="invalid-feedback" data-sb-feedback="confirmPassword:required">Confirm Password is required.</div>
         </div>
+
+        <div class="mb-3">
+            <label for="company-phone">Company Phone Number:</label>
+            <input type="tel" id="company-phone" name="company_phone" pattern="[+]{0,1}[0-9]{1,15}" required>
+
+        </div>
+       
+        <div class="form-floating mb-3">
+            <label for="companyLocation"> Company Location</label>
+            <select class="form-select" id="uk-locations" name="location" aria-label="Location" data-sb-validations="required" >
+                <option value="london">London</option>
+                <option value="manchester">Manchester</option>
+                <option value="birmingham">Birmingham</option>
+                <option value="glasgow">Glasgow</option>
+                <option value="liverpool">Liverpool</option>
+                <option value="edinburgh">Edinburgh</option>
+                <option value="leeds">Leeds</option>
+                <option value="bristol">Bristol</option>
+                <option value="sheffield">Sheffield</option>
+                <option value="newcastle">Newcastle</option>
+                <option value="cardiff">Cardiff</option>
+                <option value="belfast">Belfast</option>
+            </select>
+        </div>
+        <div >
+        <div class="form-floating mb-3">
+            <label for="employee-count">Number of Employees:</label>
+            <select id="employee-count" name="employee_count">
+                <option value="1-10">1-10</option>
+                <option value="11-50">11-50</option>
+                <option value="51-100">51-100</option>
+                <option value="101-200">101-200</option>
+                <option value="201-500">201-500</option>
+                <option value="501-1000">501-1000</option>
+                <option value="1001-5000">1001-5000</option>
+                <option value="5001-10000">5001-10000</option>
+                <option value="10001-20000">10001-20000</option>
+                <option value="20001-50000">20001-50000</option>
+                <option value="50001-100000">50001-100000</option>
+                <option value="100000+">100000+</option>
+            </select>
+        </div>
+
         <div class="d-none" id="submitSuccessMessage">
             <div class="text-center mb-3">
                 <div class="fw-bolder">Form submission successful!</div>

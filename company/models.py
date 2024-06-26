@@ -1,9 +1,10 @@
 from django.db import models
-from users.models import user
+from users.models import User
+
 
 
 class company(models.Model):
-    user=models.OneToOneField(user, on_delete=models.CASCADE)
+    user=models.OneToOneField(User, on_delete=models.CASCADE)
     name= models. CharField(max_length=100,null=True,blank=True)
     est_date= models.PositiveIntegerField(null=True,blank=True)
     city= models.CharField(max_length=100,null=True,blank=True)

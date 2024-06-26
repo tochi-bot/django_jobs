@@ -5,10 +5,21 @@
     <h2 class="text-uppercase">Welcome To Django Applicant</h2>
     <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="post">
         {% csrf_token %}
-        <div class="mb-3">
-            <label class="form-label" for="fullName">Enter Full Name</label>
-            <input class="form-control" id="fullName" type="text" name="fullName" data-sb-validations="required" />
-            <div class="invalid-feedback" data-sb-feedback="fullName:required">Full Name is required.</div>
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" class="form-control" id="first-name" name="first_name" maxlength="100">
+        </div>
+        <div class="form-group">
+            <label for="surname">Surname</label>
+            <input type="text" class="form-control" id="surname" name="surname" maxlength="100">
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" class="form-control" id="location" name="location" maxlength="100">
+        </div>
+        <div class="form-group">
+            <label for="job-title">Job Title</label>
+            <input type="text" class="form-control" id="job-title" name="job_title" maxlength="100">
         </div>
         <div class="mb-3">
             <label class="form-label" for="emailAddress">Enter Email Address</label>
@@ -26,6 +37,46 @@
             <input class="form-control" id="password2" type="password" name="password2" data-sb-validations="required" />
             <div class="invalid-feedback" data-sb-feedback="password2:required">Confirm Password is required.</div>
         </div>
+        <div class="form-group">
+            <label for="phone-number">Phone Number</label>
+            <input type="tel" class="form-control" id="phone-number" name="phone_number" maxlength="20">
+        </div>
+        <div class="form-group">
+            <label for="summary">Summary</label>
+            <textarea class="form-control" id="summary" name="summary" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="education">Education</label>
+            <textarea class="form-control" id="education" name="education" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="experience">Experience</label>
+            <textarea class="form-control" id="experience" name="experience" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="skills">Skills</label>
+            <textarea class="form-control" id="skills" name="skills" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="certifications">Certifications</label>
+            <textarea class="form-control" id="certifications" name="certifications" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="languages">Languages</label>
+            <textarea class="form-control" id="languages" name="languages" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="linkedin-url">LinkedIn URL</label>
+            <input type="url" class="form-control" id="linkedin-url" name="linkedin_url" maxlength="200">
+        </div>
+        <div class="form-group">
+            <label for="github-url">GitHub URL</label>
+            <input type="url" class="form-control" id="github-url" name="github_url" maxlength="200">
+        </div>
+        <div class="form-group">
+            <label for="website">Website</label>
+            <input type="url" class="form-control" id="website" name="website" maxlength="200">
+        </div>
         <div class="d-none" id="submitSuccessMessage">
             <div class="text-center mb-3">
                 <div class="fw-bolder">Form submission successful!</div>
@@ -41,5 +92,7 @@
         <small class="text-muted">Already have an account? <a href="{% url 'login' %}">Sign In</a></small>
     </form>
 </div>
+
+
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 {% endblock %}
